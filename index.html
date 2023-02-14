@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Good DA in KD">
+  <meta name="keywords" content="Knowledge Distillation, Data Augmentation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parameter-Efficient Masking Networks</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://github.com/yueb17/PEMN">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Parameter-Efficient Masking Networks</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://yueb17.github.io/">Yue Bai</a><sup>1,4,&ast;</sup>&#8192;
+              </span>
+              <span class="author-block">
+                <a href="https://huanwang.tech/">Huan Wang</a><sup>1,4</sup>&#8192;
+              </span>
+              <span class="author-block">
+                <a href="https://ma-xu.github.io/">Xu Ma</a><sup>1</sup>&#8192;
+              </span>
+              <span class="author-block">
+                <a href="https://bespontaneous.github.io/homepage/">Yitian Zhang</a><sup>1</sup>
+              </span>
+              <span class="author-block">
+                <a href="https://ztao.cc/">Zhiqiang Tao</a><sup>3</sup>&#8192;
+              </span>
+              <span class="author-block">
+                <a href="http://www1.ece.neu.edu/~yunfu/">Yun Fu</a><sup>1,2,4</sup>&#8192;
+              </span>
+            </div>
+            <h1 style="font-size:23px;font-weight:bold">NeurIPS 2022</h1>
+
+            <div class="is-size-5 publication-authors">
+              <span><sup>1</sup>Department of Electrical and Computer Engineering, Northeastern University&#8192;</span><br>
+              <span><sup>2</sup>Khoury College of Computer Science, Northeastern University</span><br>
+              <span><sup>3</sup>School of Information, Rochester Institute of Technology</span><br>
+              <span><sup>4</sup>AInnovation Labs, Inc.</span>
+            </div>
+
+            <div style="font-size:15px">
+              <span><sup>&ast;</sup>Corresponding author: bai.yue@northeastern.edu</span></br>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2210.06699"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>PDF</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2210.06699" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>ArXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/yueb17/PEMN"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div align='center'>
+          <a><img src="figs/main_figure_cr.svg"  height="200" ></a>
+        </div>
+        <div class="content has-text-justified">
+          Left is the conventional fashion where weights are optimized and sparse structures
+are decided by certain criteria. Right is our PEMN to represent a network where the prototype weights
+are fixed and repetitively used to fill in the whole network and different masks are learned to deliver
+different feature mappings. Following this line, we explore the representative potential of random
+weights and propose a novel paradigm to achieve model compression by combining a set of random
+weights and a bunch of masks. Different features mappings are shown as blue rectangles. Squares with different color patches inside serve as parameters of
+different layers.  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            A deeper network structure generally handles more complicated non-linearity and performs more competitively. Nowadays, advanced network designs often contain a large number of repetitive structures (e.g., Transformer). They empower the network capacity to a new level but also increase the model size inevitably, which is unfriendly to either model restoring or transferring. In this study, we are the first to investigate the representative potential of fixed random weights with limited unique values by learning diverse masks and introduce the Parameter-Efficient Masking Networks (PEMN). It also naturally leads to a new paradigm for model compression to diminish the model size. Concretely, motivated by the repetitive structures in modern neural networks, we utilize one random initialized layer, accompanied with different masks, to convey different feature mappings and represent repetitive network modules. Therefore, the model can be expressed as \textit{one-layer} with a bunch of masks, which significantly reduce the model storage cost. Furthermore, we enhance our strategy by learning masks for a model filled by padding a given random weights vector. In this way, our method can further lower the space complexity, especially for models without many repetitive architectures. We validate the potential of PEMN learning masks on random weights with limited unique values and test its effectiveness for a new compression paradigm based on different network architectures.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <!-- NeRF results: Blender -->
+          <h2 class="title is-3" align='center'>Random Weights Representative Capacity Exploration</h2>
+           
+
+          <p align="center">
+            <table><tr>
+            <td><a><img src="figs/plot_convmixer_d6.svg"  height="100" ></a></td>
+            <td><a><img src="figs/plot_convmixer_d8.svg"  height="100" ></a></td>
+            </tr><table>
+            </br>
+            <table><tr>
+            <td><a><img src="figs/plot_vit_d6.svg"  height="100" ></a></td>
+            <td><a><img src="figs/plot_vit_d8.svg"  height="100" ></a></td>
+            </tr><table>
+            </br>
+          </p>
+    Performances of ConvMixer (top row) and ViT (bottom row) backbones on CIFAR10 dataset with different model hyperparameters. Y-axis represent the test accuracy and X-axis denotes different network parameter settings. Dense means the model is trained in regular fashion. Mask is the sparse selection strategy.
+One-layer, MP, and RP are our strategies. The decimal after RP means the number of unique
+parameters compared with MP. From Mask to RP 1e-5, the unique values of network decrease.
+Different experimental settings illustrate the representative potential of random weights.
+          </br>
+          </br>
+          </br>
+
+          <h2 class="title is-3" align='center'>A New Network Compression Paradigm</h2>
+           
+
+          <p align="center">
+            <table><tr>
+            <td><a><img src="figs/plot_cifar10_resnet.svg"  height="100" ></a></td>
+            <td><a><img src="figs/plot_cifar100_resnet.svg"  height="100" ></a></td>
+            </tr><table>
+          </p>
+    Compression performance validation on CIFAR10 (left) and CIFAR100 (right) datasets on
+ResNet32/ResNet56 backbones. Y-axis denotes the test accuracy. X-axis means the network size
+compression ratio. Different colors represent different network architectures. The straight lines on the
+top are performance of dense model with regular training. Lines with different symbol shapes denote
+different settings. For ResNet, our three points are based on MP, RP 1e-1, and RP 1e-2, respectively.
+This pair of figures show that our proposed paradigm achieves admirable compression performance
+compared with baselines. In very high compression ratios, we can still maintain the test accuracy.
+
+          
+
+        
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{bai2022parameter,
+  title={Parameter-Efficient Masking Networks},
+  author={Bai, Yue and Wang, Huan and Ma, Xu and Zhang, Yitian and Tao, Zhiqiang and Fu, Yun},
+  journal={arXiv preprint arXiv:2210.06699},
+  year={2022}
+}
+</code></pre>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div align="center" class="container">
+      <div class="columns is-centered">
+        <div class="content">
+          This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
