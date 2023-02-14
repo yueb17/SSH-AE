@@ -1,1 +1,1 @@
-Webpage for our NeurIPS22 paper: Parameter-Efficient Masking Networks
+Webpage for our AAAI23 paper: Layout Representation Learning with Spatial and Structural Hierarchies
